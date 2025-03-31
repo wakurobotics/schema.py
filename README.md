@@ -1,2 +1,1 @@
-# schema.py
-Python SDK for Care MQTT Api
+# Care Python CLient

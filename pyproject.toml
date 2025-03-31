@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wakurobotics"
+version = "0.1.0"
+description = "A client for the Care API"
+authors = [{ name = "Waku Robotics", email = "support@waku-robotics.com" }]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "pydantic",
+    "paho-mqtt",
+]
+
+[tool.setuptools]
+packages = ["wakurobotics"]
+
+[project.optional-dependencies]
+dev = ["pytest", "black", "ruff"]  # Optional: Add dev dependencies
