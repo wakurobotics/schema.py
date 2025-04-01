@@ -1,4 +1,3 @@
-import json
 import paho.mqtt.client as mqtt
 from wakurobotics.care.devices.v1 import DeviceValues, DeviceFactsheet, Connection, ConnectionStatus
 from datetime import datetime

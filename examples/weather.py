@@ -93,8 +93,8 @@ if not MQTT_USER or not MQTT_PASS:
 
 print(f"Connecting to {MQTT_HOST}:{MQTT_PORT} with user {MQTT_USER}")
 
-# Create MQTT Publisher
-publisher = Client(customer_id=args.customer_id, connection_id=args.connection_id, broker=MQTT_HOST, port=int(MQTT_PORT), username=MQTT_USER, password=MQTT_PASS)  # Free test broker
+# Create the WAKU Care client
+publisher = Client(customer_id=args.customer_id, connection_id=args.connection_id, broker=MQTT_HOST, port=int(MQTT_PORT), username=MQTT_USER, password=MQTT_PASS)
 
 # Connect to broker
 publisher.connect()
