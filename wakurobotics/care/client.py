@@ -26,6 +26,13 @@ class Client:
             self.client.username_pw_set(self.username, self.password)
                     
         self.client.connect(self.broker, self.port)
+        
+        # subscribe to WAKU Care errorlog topic
+        def on_message(client, userdata, msg):
+            print(f"Received error message from WAKU Care: `{msg.payload.decode()}` from `{msg.topic}` topic")
+
+        self.client.subscribe(f"{VERSION}/{self.connection_id}/errorlog")
+        self.client.on_message = on_message
         self.client.loop_start()
 
     def connect_device(self, serial: str):
