@@ -1,6 +1,6 @@
 # WAKU Care SDK Openapi Weather Client
 
-This code queries the weather for Dresden and Florence (because Dresden is called the ['Florence of the Elbe'](https://en.wikipedia.org/wiki/Dresden#:~:text=With%20a%20pleasant%20location%20and,(Florence%20on%20the%20Elbe)) every second from [api.openmetor.com](https://api.open-meteo.com/).
+This code queries the weather for Dresden and Florence (because Dresden is called the ['Florence of the Elbe'](https://en.wikipedia.org/wiki/Dresden#:~:text=With%20a%20pleasant%20location%20and,(Florence%20on%20the%20Elbe))) every second from [api.openmetor.com](https://api.open-meteo.com/).
 
 You can use the API for yourself to see what it will return:
 
