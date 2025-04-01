@@ -2,7 +2,8 @@
 
 This code queries the weather for Dresden and Florence (because Dresden is called the ['Florence of the Elbe'](https://en.wikipedia.org/wiki/Dresden#:~:text=With%20a%20pleasant%20location%20and,(Florence%20on%20the%20Elbe))) every second from [api.openmetor.com](https://api.open-meteo.com/).
 
-You can use the [API](https://api.open-meteo.com/v1/forecast?latitude=51.0504&longitude=13.7373&current=temperature_2m,wind_speed_10m,wind_direction_10m,surface_pressure) for yourself to see what it will return:
+You can use the [API](https://api.open-meteo.com/v1/forecast?latitude=51.0504&longitude=13.7373&current=temperature_2m,wind_speed_10m,wind_direction_10m,surface_pressure) for yourself to see what it will return.
+In the case of Dresden on April, 1st, it will return the following JSON:
 
 ```json
 {
@@ -33,8 +34,8 @@ You can use the [API](https://api.open-meteo.com/v1/forecast?latitude=51.0504&lo
 ```
 
 The script parses these values and sends them via the `values` topic to WAKU Care.
-This script will also register devices (aka "weather stations") in WAKU Care.
-In reality, these devices could be wind turbines and the measurements, provided by openmeteor would be sensor readings on that turbine.
+It will also register devices (aka "weather stations") in WAKU Care, if they did not exist yet and manage their connection status.
+In reality, these devices could be wind turbines and the measurements, provided by openmeteor, would be sensor readings on those turbines.
 
 To run this script, run:
 
