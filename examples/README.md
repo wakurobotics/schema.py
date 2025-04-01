@@ -2,7 +2,7 @@
 
 This code queries the weather for Dresden and Florence (because Dresden is called the ['Florence of the Elbe'](https://en.wikipedia.org/wiki/Dresden#:~:text=With%20a%20pleasant%20location%20and,(Florence%20on%20the%20Elbe))) every second from [api.openmetor.com](https://api.open-meteo.com/).
 
-You can use the API for yourself to see what it will return:
+You can use the [API](https://api.open-meteo.com/v1/forecast?latitude=51.0504&longitude=13.7373&current=temperature_2m,wind_speed_10m,wind_direction_10m,surface_pressure) for yourself to see what it will return:
 
 ```json
 {
