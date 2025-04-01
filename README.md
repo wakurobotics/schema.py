@@ -38,4 +38,4 @@ publisher.disconnect()
 
 ```
 
-See the examples directory containing a sample WAKU Care client to send weather data, gathered from [api.open-meteo.com](api.open-meteo.com).
+See the [examples](examples/README.md) directory containing a sample WAKU Care client to send weather data, gathered from [api.open-meteo.com](api.open-meteo.com).

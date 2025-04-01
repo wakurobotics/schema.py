@@ -75,8 +75,8 @@ def weather_data_to_care_message(weather_data: dict):
     return message
     
 # Get MQTT credentials from environment variables with defaults
-MQTT_HOST = os.getenv('MQTT_HOST', 'care-dev.waku-robotics.com')
-MQTT_PORT = os.getenv('MQTT_PORT', 8883)
+MQTT_HOST = os.getenv('MQTT_HOST')
+MQTT_PORT = os.getenv('MQTT_PORT')
 MQTT_USER = os.getenv('MQTT_USER')
 MQTT_PASS = os.getenv('MQTT_PASS')
 
