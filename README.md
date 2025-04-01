@@ -1,4 +1,4 @@
-# Care Python Client
+# Care Python SDK
 
 This is an experimental Python SDK for WAKU Care's MQTT API.
 The MQTT API is documented [here](https://docs.waku-robotics.com/#/)
