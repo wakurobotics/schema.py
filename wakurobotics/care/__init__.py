@@ -1,3 +1,3 @@
-from wakurobotics.care.client import Client
+from wakurobotics.care.client import Client, get_timestamp
 
-__all__ = ['Client']
+__all__ = ['Client', 'get_timestamp']

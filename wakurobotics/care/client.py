@@ -1,8 +1,12 @@
 import json
 import paho.mqtt.client as mqtt
-from wakurobotics.care.devices.v1 import DeviceValues, DeviceFactsheet
+from wakurobotics.care.devices.v1 import DeviceValues, DeviceFactsheet, Connection, ConnectionStatus
+from datetime import datetime
 
 VERSION = "v1"
+
+def get_timestamp():
+    return datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
 
 class Client:
     def __init__(self, customer_id: str, connection_id: str, broker: str, port: int = 8883, username: str = None, password: str = None):
@@ -15,7 +19,6 @@ class Client:
         self.connection_id = connection_id
         self.username = username
         self.password = password
-        
 
     def connect(self):
         """Connect to the MQTT broker."""
@@ -25,6 +28,31 @@ class Client:
         self.client.connect(self.broker, self.port)
         self.client.loop_start()
 
+    def connect_device(self, serial: str):
+        """
+        Publish a validated DeviceFactsheet message.
+
+        :param message: MQTTMessage (Pydantic model)
+        """
+        topic = f"{VERSION}/{self.connection_id}/{self.customer_id}/{serial}/connection"
+        payload = Connection(
+            status=ConnectionStatus.online,
+            timestamp=get_timestamp()
+        ).model_dump_json()
+
+        return self.client.publish(topic, payload, qos=1, retain=True)
+    
+    def disconnect_device(self, serial: str):
+        """
+        Publish a validated DeviceFactsheet message.
+        """
+        topic = f"{VERSION}/{self.connection_id}/{self.customer_id}/{serial}/connection"
+        payload = Connection(
+            status=ConnectionStatus.offline,
+            timestamp=get_timestamp()
+        ).model_dump_json()
+
+        return self.client.publish(topic, payload, qos=1, retain=True)
 
     def register_device(self, serial: str, device_values: DeviceFactsheet):
         """
@@ -35,9 +63,7 @@ class Client:
         topic = f"{VERSION}/{self.connection_id}/{self.customer_id}/{serial}/factsheet"
         payload = device_values.model_dump_json()
 
-        self.client.publish(topic, payload)
-        print(f"Published to {topic}: {payload}")
-
+        return self.client.publish(topic, payload, qos=1, retain=True)
 
     def publish_device_values(self, serial: str, device_values: DeviceValues):
         """
@@ -48,11 +74,9 @@ class Client:
         topic = f"{VERSION}/{self.connection_id}/{self.customer_id}/{serial}/values"
         payload = device_values.model_dump_json()
 
-        self.client.publish(topic, payload)
-        print(f"Published to {topic}: {payload}")
-        
+        return self.client.publish(topic, payload, qos=0, retain=False)
 
     def disconnect(self):
         """Disconnect from the MQTT broker."""
         self.client.loop_stop()
-        self.client.disconnect()
+        return self.client.disconnect()
