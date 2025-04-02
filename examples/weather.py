@@ -38,7 +38,7 @@ def weather_data_to_care_message(weather_data: dict):
     wind_direction = weather_data['current'][WIND_DIRECTION]
     surface_pressure = weather_data['current'][SURFACE_PRESSURE]
     
-    print(f"Temperature: {temperature}C, Wind Speed: {wind_speed}kph, Surface Pressure: {surface_pressure}hpa")
+    print(f"Temperature: {temperature}C, Wind Speed: {wind_speed}kmph, Surface Pressure: {surface_pressure}hpa")
     
     # Create a valid message
     message = DeviceValues(
@@ -55,7 +55,7 @@ def weather_data_to_care_message(weather_data: dict):
                     name="windspeed-every-15-minutes",
                     value=wind_speed,
                     # API returns wind speed in km/h
-                    unit=ScalarValueUnit.kph
+                    unit=ScalarValueUnit.kmph
                 ),
                 ScalarValue(
                     name="winddirection-every-15-minutes",
