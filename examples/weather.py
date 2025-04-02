@@ -112,8 +112,11 @@ publisher.register_device(
         # it is NOT the serial number we use within our connection
         serial='11111111',
         name="Dresden Weather Station",
-        manufacturer="default",
+        # default manufacturer, you can get a list of supported manfacturers from the WAKU Care team
+        manufacturer="12345678",
+        # default device model, you can get a list of supported device models from the WAKU Care team
         model="default",
+        # software version of the device
         version="1.0.0",
         deployment="Logistics AG (Demo)",
     )
@@ -127,8 +130,11 @@ publisher.register_device(
         # it is NOT the serial number we use within our connection
         serial='22222222',
         name="Florence Weather Station",
-        manufacturer="default",
+        # default manufacturer, you can get a list of supported manfacturers from the WAKU Care team
+        manufacturer="12345678",
+        # default device model, you can get a list of supported device models from the WAKU Care team
         model="default",
+        # software version of the device
         version="1.0.0",
         deployment="Logistics AG (Demo)",
     )
