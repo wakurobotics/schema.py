@@ -8,8 +8,8 @@ Please contact the WAKU Care team for details on how to do that.
 
 ## Installation
 
-First, clone this repository: `git clone git@github.com:wakurobotics/schema.py.git`.
-Then cd into schema.py and run `pip3 install -e .` to install the package.
+First, clone this repository: `git clone https://github.com/wakurobotics/schema.py.git`.
+Then cd into schema.py and run `pip3 install .` to install the package.
 
 ## Usage
 
