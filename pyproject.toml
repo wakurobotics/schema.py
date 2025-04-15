@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wakurobotics"
-version = "0.1.0"
+version = "0.2.0"
 description = "A client for the Care API"
 authors = [{ name = "Waku Robotics", email = "support@waku-robotics.com" }]
 readme = "README.md"
