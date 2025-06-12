@@ -2,6 +2,8 @@ import paho.mqtt.client as mqtt
 from wakurobotics.care.devices.v1 import (
     DeviceValues,
     DeviceFactsheet,
+    DeviceOrder,
+    DeviceErrors,
     Connection,
     ConnectionStatus,
 )
@@ -117,6 +119,28 @@ class Client:
         """
         topic = f"{VERSION}/{self.connection_id}/{self.customer_id}/{serial}/values"
         payload = device_values.model_dump_json()
+
+        return self.client.publish(topic, payload, qos=0, retain=False)
+
+    def publish_device_order(self, serial: str, message: DeviceOrder):
+        """
+        Publish a validated DeviceOrder message.
+
+        :param message: MQTTMessage (Pydantic model)
+        """
+        topic = f"{VERSION}/{self.connection_id}/{self.customer_id}/{serial}/order"
+        payload = message.model_dump_json()
+
+        return self.client.publish(topic, payload, qos=0, retain=False)
+
+    def publish_device_errors(self, serial: str, message: DeviceErrors):
+        """
+        Publish a validated DeviceErrors message.
+
+        :param message: MQTTMessage (Pydantic model)
+        """
+        topic = f"{VERSION}/{self.connection_id}/{self.customer_id}/{serial}/errors"
+        payload = message.model_dump_json()
 
         return self.client.publish(topic, payload, qos=0, retain=False)
 
