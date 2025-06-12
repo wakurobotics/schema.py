@@ -13,26 +13,26 @@ from .shared import position_schema
 
 
 class Error(BaseModel):
-    title: str = Field(..., description='short title for the error')
-    code: str = Field(..., description='error code')
+    title: str = Field(..., description="short title for the error")
+    code: str = Field(..., description="error code")
     description: Optional[str] = Field(
-        None, description='long description of the error'
+        None, description="long description of the error"
     )
-    component: Optional[str] = Field(None, description='source component of error')
-    severity: Optional[conint(ge=0, le=4)] = Field(None, description='severity')
+    component: Optional[str] = Field(None, description="source component of error")
+    severity: Optional[conint(ge=0, le=4)] = Field(None, description="severity")
     parameters: Optional[Dict[str, Any]] = Field(
         None,
-        description='parameters to the current error as key value pairs of any type',
+        description="parameters to the current error as key value pairs of any type",
     )
     position: Optional[position_schema.DevicePosition] = Field(
-        None, description='position at which the error occurred'
+        None, description="position at which the error occurred"
     )
 
 
 class DeviceErrors(BaseModel):
     timestamp: datetime = Field(
         ...,
-        description='Timestamp in ISO8601 format (YYYY-MM-DDTHH:mm:ss.ssZ).',
-        examples=['1991-03-11T11:40:03.12Z'],
+        description="Timestamp in ISO8601 format (YYYY-MM-DDTHH:mm:ss.ssZ).",
+        examples=["1991-03-11T11:40:03.12Z"],
     )
     activeErrors: Optional[List[Error]] = None

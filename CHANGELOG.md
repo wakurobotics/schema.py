@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-06-12
+
+### Added
+
+- error messages may now contain a `parameters` field with arbitrary json
+
 ## [0.2.0] - 2025-04-15
 
 ### Added
